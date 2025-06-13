@@ -34,8 +34,8 @@ toolkit_menu() {
         read -p "Select an option (1-3): " option
 
         case "$option" in
-            1) cd /tmp && wget -O RMxxx_rgmii_toolkit.sh https://gh-proxy.com/https://raw.githubusercontent.com/xfkun233/quectel-rgmii-toolkit/SDXLEMUR/RMxxx_rgmii_toolkit.sh && chmod +x RMxxx_rgmii_toolkit.sh && ./RMxxx_rgmii_toolkit.sh && cd / ;;
-            2) cd /tmp && wget -O RMxxx_rgmii_toolkit.sh https://gh-proxy.com/https://raw.githubusercontent.com/xfkun233/quectel-rgmii-toolkit/development-SDXLEMUR/RMxxx_rgmii_toolkit.sh && chmod +x RMxxx_rgmii_toolkit.sh && ./RMxxx_rgmii_toolkit.sh && cd / ;;
+            1) cd /tmp && wget --no-check-certificate -O RMxxx_rgmii_toolkit.sh https://gh-proxy.com/https://raw.githubusercontent.com/xfkun233/quectel-rgmii-toolkit/SDXLEMUR/RMxxx_rgmii_toolkit.sh && chmod +x RMxxx_rgmii_toolkit.sh && ./RMxxx_rgmii_toolkit.sh && cd / ;;
+            2) cd /tmp && wget --no-check-certificate -O RMxxx_rgmii_toolkit.sh https://gh-proxy.com/https://raw.githubusercontent.com/xfkun233/quectel-rgmii-toolkit/development-SDXLEMUR/RMxxx_rgmii_toolkit.sh && chmod +x RMxxx_rgmii_toolkit.sh && ./RMxxx_rgmii_toolkit.sh && cd / ;;
             3) break ;;
             *) echo "Invalid option. Please try again." ;;
         esac

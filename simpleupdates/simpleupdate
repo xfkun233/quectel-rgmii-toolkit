@@ -27,7 +27,7 @@ trim_log_file() {
 check_for_updates() {
     echo "$(date): Checking for updates..."
     for dir in "${DIRECTORIES[@]}"; do
-        local remote_rev=$(wget -qO- "$BASE_URL/$dir/.rev")
+        local remote_rev=$(wget --no-check-certificate -qO- "$BASE_URL/$dir/.rev")
         local local_rev_file="/usrdata/$dir/.rev"
         
         if [[ ! -f "$local_rev_file" ]]; then
@@ -39,7 +39,7 @@ check_for_updates() {
         
         if [[ "$remote_rev" -gt "$local_rev" ]]; then
             echo "Update available for $dir, updating..."
-            wget -qO "/tmp/update_${dir}.sh" "$BASE_URL/simpleupdates/scripts/update_${dir}.sh"
+            wget --no-check-certificate -qO "/tmp/update_${dir}.sh" "$BASE_URL/simpleupdates/scripts/update_${dir}.sh"
             chmod +x "/tmp/update_${dir}.sh"
             "/tmp/update_${dir}.sh"
         else
@@ -118,7 +118,7 @@ fi
 force_check_for_updates() {
     echo "$(date): Checking for updates..."
     for dir in "${DIRECTORIES[@]}"; do
-        local remote_rev=$(wget -qO- "$BASE_URL/$dir/.rev")
+        local remote_rev=$(wget --no-check-certificate -qO- "$BASE_URL/$dir/.rev")
         local local_rev_file="/usrdata/$dir/.rev"
         
         if [[ ! -f "$local_rev_file" ]]; then
@@ -130,7 +130,7 @@ force_check_for_updates() {
         
         if [[ "$remote_rev" -gt "$local_rev" ]]; then
             echo "Update available for $dir, updating..."
-            wget -qO "/tmp/update_${dir}.sh" "$BASE_URL/simpleupdates/scripts/update_${dir}.sh"
+            wget --no-check-certificate -qO "/tmp/update_${dir}.sh" "$BASE_URL/simpleupdates/scripts/update_${dir}.sh"
             chmod +x "/tmp/update_${dir}.sh"
             "/tmp/update_${dir}.sh"
         else

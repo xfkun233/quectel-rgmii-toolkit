@@ -101,8 +101,8 @@ install_update_tailscale() {
         rm -rf /usrdata/tailscale_1.76.1_arm
         echo "Downloading systemd files..."
         cd "$TAILSCALE_SYSD_DIR"
-        wget $GITROOT/tailscale/systemd/tailscaled.service
-        wget $GITROOT/tailscale/systemd/tailscaled.defaults
+        wget --no-check-certificate $GITROOT/tailscale/systemd/tailscaled.service
+        wget --no-check-certificate $GITROOT/tailscale/systemd/tailscaled.defaults
         sleep 2s
         echo "Setting Permissions..."
         chmod +x "$TAILSCALE_DIR/tailscaled" "$TAILSCALE_DIR/tailscale"

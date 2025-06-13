@@ -54,7 +54,7 @@ echo -e "\e[1;32mOpenSSH Server\e[0m"
         remount_rw
 
 	    mkdir /usrdata/sshd
-        wget -O /lib/systemd/system/sshd.service "$GITROOT/sshd/sshd.service"
+        wget --no-check-certificate -O /lib/systemd/system/sshd.service "$GITROOT/sshd/sshd.service"
     	ln -sf "/lib/systemd/system/sshd.service" "/lib/systemd/system/multi-user.target.wants/"
         
         opkg install openssh-server-pam
